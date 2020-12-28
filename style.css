@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(0, 255, 255);
+    font-family: monospace;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+}
+
+.search {
+    position: relative;
+    height: 50px ;
+}
+
+.search .input {
+    background-image: linear-gradient(to right,rgb(236, 139, 187, 0),rgb(236, 139, 187, 0), rgb(236, 139, 187, 1));
+    border-radius: 50px;
+    border-style: none;
+    padding: 15px;
+    height: 50px;       /* h và w của btn cùng kích cỡ với input chưa active để nằm đè lên nhau  */
+    width: 50px;
+    transition: width 0.3s ease;
+}
+
+.btn{
+    background-color: #ec8bbb;
+    color: #fff;
+    border-radius: 50px;
+    border-style: none;
+    width: 50px;            /* equal với input */
+    height: 50px;
+    top: 0;                 /* đặt top 0, left 0 để trả về center như đã đặt ở body */
+    left: 0;
+    font-size: 18px;
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.3s ease; 
+    z-index: 1;             /* để nằm đè lên input khi active */ 
+}
+
+.search.active .input {
+    width: 250px;
+    overflow: hidden;       /* để nối liền với btn */
+}
+
+.btn:focus, .input:focus {
+    outline: none;
+}
+
+.search.active .btn {
+    transform: translateX(198px); 
+}
